@@ -40,10 +40,11 @@ public class ProductAdapter extends ArrayAdapter<Product> {
 
         tvProductName.setText(product.getName());
         tvProductDesc.setText(product.getDescription());
-        tvProductPrice.setText(product.getPrice() + " đ");
+        tvProductPrice.setText("Giá: " + product.getPrice() + " đ");
 
         btnDetail.setOnClickListener(v -> {
-            Intent intent = new Intent(context, SearchActivity.class);
+            Intent intent = new Intent(context, DetailActivity.class);
+            intent.putExtra("product", product);
             context.startActivity(intent);
         });
 

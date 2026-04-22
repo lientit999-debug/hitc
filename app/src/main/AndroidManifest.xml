@@ -8,29 +8,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hitc">
 
-        <activity
-            android:name=".ChangePasswordActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".CartActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".InformationUserActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".SearchActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".HomeActivity"
-            android:exported="true">
+        <activity android:name=".ChangePasswordActivity" android:exported="false" />
+        <activity android:name=".InformationUserActivity" android:exported="false" />
+        <activity android:name=".RelatedProductActivity" android:exported="false" />
+        <activity android:name=".SearchActivity" android:exported="false" />
+        <activity android:name=".PaymentActivity" android:exported="false" />
+        <activity android:name=".CartActivity" android:exported="false" />
+        <activity android:name=".DetailActivity" android:exported="false" />
+        <activity android:name=".HomeActivity" android:exported="false" />
+        <activity android:name=".ForgetPasswordActivity" android:exported="false" />
+        <activity android:name=".RegisterActivity" android:exported="false" />
+        <activity android:name=".LoginActivity" android:exported="false" />
+        <activity android:name=".MainActivity" android:exported="false" />
+        <activity android:name=".WelcomeActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
