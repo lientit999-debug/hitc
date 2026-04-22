@@ -2,43 +2,55 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4F6F9"
+    android:background="#F5F5F5"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="24dp">
 
+    <!-- Icon đơn giản -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HITC SHOP"
-        android:textColor="#222222"
-        android:textSize="32sp"
+        android:text="🛒"
+        android:textSize="80sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="BỊP SHOP"
+        android:textColor="#FF9800"
+        android:textSize="36sp"
         android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Chào mừng bạn đến với ứng dụng mua sắm"
-        android:textColor="#666666"
+        android:layout_marginTop="8dp"
+        android:text="Mua sắm kiểu Bịp Vương"
+        android:textColor="#757575"
         android:textSize="16sp" />
 
+    <!-- Nút Đăng nhập -->
     <Button
         android:id="@+id/btnGoLogin"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="#4CAF50"
+        android:layout_height="56dp"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="#FF9800"
         android:text="Đăng nhập"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 
+    <!-- Nút Đăng ký -->
     <Button
         android:id="@+id/btnGoRegister"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="56dp"
         android:layout_marginTop="12dp"
         android:backgroundTint="#4CAF50"
-        android:text="Đăng ký"
-        android:textColor="#FFFFFF" />
+        android:text="Đăng ký tài khoản"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 
 </LinearLayout>

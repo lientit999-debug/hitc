@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!-- Theme chính cho Bịp Shop -->
     <style name="Theme.Hitc" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">#6200EE</item>
-        <item name="colorPrimaryVariant">#3700B3</item>
-        <item name="colorOnPrimary">#FFFFFF</item>
-        <item name="colorSecondary">#03DAC6</item>
-        <item name="colorSecondaryVariant">#018786</item>
-        <item name="colorOnSecondary">#000000</item>
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="colorPrimary">#D4AF37</item>
+        <item name="colorPrimaryDark">#B8860B</item>
+        <item name="colorAccent">#D4AF37</item>
+        <item name="android:windowBackground">#121212</item>
     </style>
 </resources>
