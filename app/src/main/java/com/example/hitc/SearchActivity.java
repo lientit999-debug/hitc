@@ -38,12 +38,12 @@ public class SearchActivity extends AppCompatActivity {
         navUser = findViewById(R.id.navUser);
 
         allProducts = new ArrayList<>();
-        allProducts.add(new Product(1, "Áo thun nam", "Áo cotton mềm mại", 150000, "Áo"));
-        allProducts.add(new Product(2, "Quần jean", "Quần jean xanh trẻ trung", 300000, "Quần"));
-        allProducts.add(new Product(3, "Giày sneaker", "Giày thể thao năng động", 500000, "Giày"));
-        allProducts.add(new Product(4, "Balo", "Balo đi học tiện lợi", 250000, "Phụ kiện"));
-        allProducts.add(new Product(5, "Áo hoodie", "Áo hoodie trẻ trung", 350000, "Áo"));
-        allProducts.add(new Product(6, "Áo sơ mi", "Áo sơ mi lịch lãm", 280000, "Áo"));
+        allProducts.add(new Product(1, "Laptop Gaming", "Core i9, RTX 4090", 55000000, "Điện tử"));
+        allProducts.add(new Product(2, "iPhone 15 Pro Max", "Titan tự nhiên, 256GB", 32000000, "Điện thoại"));
+        allProducts.add(new Product(3, "Bàn phím cơ", "Switch Cherry MX, RGB", 2500000, "Linh kiện"));
+        allProducts.add(new Product(4, "Chuột không dây", "DPI cao, pin bền", 1200000, "Linh kiện"));
+        allProducts.add(new Product(5, "Tai nghe chống ồn", "Âm thanh Hi-Res", 4500000, "Điện tử"));
+        allProducts.add(new Product(6, "Màn hình 4K", "144Hz, IPS", 8000000, "Linh kiện"));
 
         filteredProducts = new ArrayList<>(allProducts);
         adapter = new ProductAdapter(this, filteredProducts);

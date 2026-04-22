@@ -2,134 +2,114 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
+    android:background="#F5F5F5"
     android:orientation="vertical">
 
-    <!-- Header Sang Trọng -->
+    <!-- Tech Store Header -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/bg_header_gold"
-        android:orientation="vertical"
-        android:padding="24dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="BỊP SHOP 👑"
-            android:textColor="#D4AF37"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Nơi đẳng cấp hội tụ"
-            android:textColor="#AAAAAA"
-            android:textSize="14sp" />
-
-        <LinearLayout
-            android:id="@+id/btnSearchBox"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/bg_search_dark"
-            android:gravity="center_vertical"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:elevation="4dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🔍"
-                android:textSize="18sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Truy tìm bảo vật..."
-                android:textColor="#666666"
-                android:textSize="15sp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- Categories -->
-    <HorizontalScrollView
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-20dp"
-        android:scrollbars="none">
+        android:background="@drawable/bg_tech_header"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_chip_gold"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="10dp"
-                android:text="Tất cả"
-                android:textColor="#121212"
+                android:layout_weight="1"
+                android:text="TECH STORE"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:background="@drawable/bg_chip_dark"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="10dp"
-                android:text="Áo Bịp"
-                android:textColor="#D4AF37" />
+                android:text="🔔"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnSearchBox"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_search_shopee"
+            android:gravity="center_vertical"
+            android:paddingLeft="12dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:background="@drawable/bg_chip_dark"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="10dp"
-                android:text="Quần Bịp"
-                android:textColor="#D4AF37" />
-        </LinearLayout>
-    </HorizontalScrollView>
+                android:text="🔍"
+                android:textSize="14sp" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Tìm kiếm đồ công nghệ..."
+                android:textColor="#757575"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Banner -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_margin="12dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@android:drawable/ic_menu_gallery"
+            android:background="#1976D2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="16dp"
+            android:text="GIẢM GIÁ ĐẾN 50%\nCHO LAPTOP GAMING"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Danh mục -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="24dp"
-        android:text="Bảo vật hôm nay"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Sản phẩm mới nhất"
+        android:textColor="#212121"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
-    <ListView
-        android:id="@+id/listViewProducts"
+    <!-- Grid Sản phẩm -->
+    <GridView
+        android:id="@+id/gridViewProducts"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="12dp"
-        android:clipToPadding="false"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="12dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingBottom="80dp" />
+        android:numColumns="2"
+        android:verticalSpacing="4dp"
+        android:horizontalSpacing="4dp"
+        android:padding="4dp"
+        android:stretchMode="columnWidth" />
+
+    <include layout="@layout/layout_bottom_nav" />
 
 </LinearLayout>

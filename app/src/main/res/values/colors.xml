@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Brand Colors (Bịp Vương) -->
-    <color name="gold_primary">#D4AF37</color> <!-- Tên cũ để fix lỗi -->
-    <color name="bip_gold">#D4AF37</color> <!-- Tên mới -->
-    <color name="bip_gold_dark">#B8860B</color>
-    <color name="bip_black">#121212</color>
-    <color name="bip_card">#1E1E1E</color>
-    <color name="bip_green">#2ECC71</color>
+    <!-- Tech Store Identity -->
+    <color name="tech_blue">#0D47A1</color>
+    <color name="tech_blue_light">#1976D2</color>
+    <color name="tech_bg">#F0F2F5</color>
+    <color name="tech_card_bg">#FFFFFF</color>
+    <color name="tech_price">#D32F2F</color>
+    <color name="tech_text_main">#212121</color>
+    <color name="tech_text_sub">#757575</color>
 
-    <!-- UI Helpers -->
+    <!-- Shopee Identity -->
+    <color name="shopee_orange">#EE4D2D</color>
+    <color name="shopee_orange_light">#FF5722</color>
+    <color name="shopee_bg">#F5F5F5</color>
+
+    <!-- UI Elements -->
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
-    <color name="gray_text">#AAAAAA</color>
-    <color name="light_gray">#F5F5F5</color>
+    <color name="text_black">#222222</color>
+    <color name="text_gray">#757575</color>
+    <color name="price_red">#EE4D2D</color>
 
-    <!-- Fallback colors (Để fix triệt để các file cũ) -->
-    <color name="primary_color">#D4AF37</color>
-    <color name="primary_green">#2ECC71</color>
-    <color name="light_bg">#121212</color>
-    <color name="text_main">#FFFFFF</color>
-    <color name="text_sub">#AAAAAA</color>
+    <!-- Compatibility -->
+    <color name="colorPrimary">#EE4D2D</color>
+    <color name="colorPrimaryDark">#D32F2F</color>
+    <color name="colorAccent">#EE4D2D</color>
+    <color name="primary_color">#EE4D2D</color>
+    <color name="primary_green">#EE4D2D</color>
+    <color name="gold_primary">#EE4D2D</color>
+    <color name="light_bg">#F5F5F5</color>
+    <color name="deep_dark">#FFFFFF</color>
+    <color name="window_bg">#F5F5F5</color>
+    <color name="text_inactive">#9E9E9E</color>
 </resources>

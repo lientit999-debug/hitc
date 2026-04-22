@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">Bịp Shop</string>
+    <string name="app_name">Modern Shop</string>
+    <string name="welcome_title">Chào Mừng Bạn</string>
+    <string name="welcome_slogan">Trải nghiệm mua sắm tuyệt vời cùng Modern Shop</string>
+    <string name="login_title">Đăng Nhập</string>
+    <string name="login_subtitle">Vui lòng đăng nhập để tiếp tục</string>
+    <string name="login_btn">Đăng Nhập</string>
+    <string name="register_btn">Đăng Ký</string>
+    <string name="email_hint">Địa chỉ Email</string>
+    <string name="password_hint">Mật khẩu</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="no_account">Chưa có tài khoản? Đăng ký ngay</string>
+
+    <!-- Home screen -->
+    <string name="home_search_hint">Tìm kiếm sản phẩm...</string>
+    <string name="home_featured">Sản phẩm nổi bật</string>
+    <string name="category_all">Tất cả</string>
+    <string name="category_clothing">Quần áo</string>
+    <string name="category_shoes">Giày dép</string>
 </resources>

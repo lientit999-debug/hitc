@@ -2,6 +2,7 @@ package com.example.hitc;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
 
-    ListView listViewProducts;
+    GridView gridViewProducts;
     LinearLayout btnSearchBox, navHome, navSearch, navCart, navUser;
     ArrayList<Product> productList;
     ProductAdapter adapter;
@@ -21,7 +22,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        listViewProducts = findViewById(R.id.listViewProducts);
+        gridViewProducts = findViewById(R.id.gridViewProducts);
         btnSearchBox = findViewById(R.id.btnSearchBox);
 
         navHome = findViewById(R.id.navHome);
@@ -30,15 +31,15 @@ public class HomeActivity extends AppCompatActivity {
         navUser = findViewById(R.id.navUser);
 
         productList = new ArrayList<>();
-        productList.add(new Product(1, "Áo thun nam", "Áo cotton mềm mại", 150000, "Áo"));
-        productList.add(new Product(2, "Quần jean", "Quần jean xanh trẻ trung", 300000, "Quần"));
-        productList.add(new Product(3, "Giày sneaker", "Giày thể thao năng động", 500000, "Giày"));
-        productList.add(new Product(4, "Balo", "Balo đi học tiện lợi", 250000, "Phụ kiện"));
-        productList.add(new Product(5, "Áo hoodie", "Áo hoodie trẻ trung", 350000, "Áo"));
-        productList.add(new Product(6, "Áo sơ mi", "Áo sơ mi lịch lãm", 280000, "Áo"));
+        productList.add(new Product(1, "Laptop Gaming", "Core i9, RTX 4090", 55000000, "Điện tử"));
+        productList.add(new Product(2, "iPhone 15 Pro Max", "Titan tự nhiên, 256GB", 32000000, "Điện thoại"));
+        productList.add(new Product(3, "Bàn phím cơ", "Switch Cherry MX, RGB", 2500000, "Linh kiện"));
+        productList.add(new Product(4, "Chuột không dây", "DPI cao, pin bền", 1200000, "Linh kiện"));
+        productList.add(new Product(5, "Tai nghe chống ồn", "Âm thanh Hi-Res", 4500000, "Điện tử"));
+        productList.add(new Product(6, "Màn hình 4K", "144Hz, IPS", 8000000, "Linh kiện"));
 
         adapter = new ProductAdapter(this, productList);
-        listViewProducts.setAdapter(adapter);
+        gridViewProducts.setAdapter(adapter);
 
         btnSearchBox.setOnClickListener(v ->
                 startActivity(new Intent(HomeActivity.this, SearchActivity.class)));
