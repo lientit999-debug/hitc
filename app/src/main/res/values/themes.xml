@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Theme chính cho Bịp Shop -->
+    <!-- Theme chuẩn cho Bịp Shop -->
     <style name="Theme.Hitc" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">#D4AF37</item>
-        <item name="colorPrimaryDark">#B8860B</item>
-        <item name="colorAccent">#D4AF37</item>
-        <item name="android:windowBackground">#121212</item>
+        <!-- Màu chính -->
+        <item name="colorPrimary">#FF9800</item>
+        <item name="colorPrimaryDark">#E65100</item>
+        <item name="colorAccent">#4CAF50</item>
+
+        <!-- Màu nền ứng dụng -->
+        <item name="android:windowBackground">#F5F5F5</item>
     </style>
 </resources>
