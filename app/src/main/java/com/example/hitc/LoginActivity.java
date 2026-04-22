@@ -37,7 +37,10 @@ public class LoginActivity extends AppCompatActivity {
 
             if (UserManager.login(email, password)) {
                 Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
             } else {
                 Toast.makeText(this, "Sai email hoặc mật khẩu", Toast.LENGTH_SHORT).show();
             }
