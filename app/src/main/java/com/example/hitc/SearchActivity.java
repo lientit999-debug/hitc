@@ -38,12 +38,12 @@ public class SearchActivity extends AppCompatActivity {
         navUser = findViewById(R.id.navUser);
 
         allProducts = new ArrayList<>();
-        allProducts.add(new Product(1, "Laptop Gaming", "Core i9, RTX 4090", 55000000, "Điện tử"));
-        allProducts.add(new Product(2, "iPhone 15 Pro Max", "Titan tự nhiên, 256GB", 32000000, "Điện thoại"));
-        allProducts.add(new Product(3, "Bàn phím cơ", "Switch Cherry MX, RGB", 2500000, "Linh kiện"));
-        allProducts.add(new Product(4, "Chuột không dây", "DPI cao, pin bền", 1200000, "Linh kiện"));
-        allProducts.add(new Product(5, "Tai nghe chống ồn", "Âm thanh Hi-Res", 4500000, "Điện tử"));
-        allProducts.add(new Product(6, "Màn hình 4K", "144Hz, IPS", 8000000, "Linh kiện"));
+        allProducts.add(new Product(1, "Laptop Gaming", "Core i9, RTX 4090", 55000000, "Điện tử", R.drawable.laptop));
+        allProducts.add(new Product(2, "iPhone 15 Pro Max", "Titan tự nhiên, 256GB", 32000000, "Điện thoại", R.drawable.prm));
+        allProducts.add(new Product(3, "Bàn phím cơ", "Switch Cherry MX, RGB", 2500000, "Linh kiện", R.drawable.banphim));
+        allProducts.add(new Product(4, "Chuột không dây", "DPI cao, pin bền", 1200000, "Linh kiện", R.drawable.chuot));
+        allProducts.add(new Product(5, "Tai nghe chống ồn", "Âm thanh Hi-Res", 4500000, "Điện tử", R.drawable.chongon));
+        allProducts.add(new Product(6, "Màn hình 4K", "144Hz, IPS", 8000000, "Linh kiện", R.drawable.manhinhk));
 
         filteredProducts = new ArrayList<>(allProducts);
         adapter = new ProductAdapter(this, filteredProducts);
@@ -93,6 +93,6 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void updateResultText() {
-        tvSearchResult.setText("Kết quả tìm kiếm (" + filteredProducts.size() + ")");
+        tvSearchResult.setText(getString(R.string.search_result_prefix, filteredProducts.size()));
     }
 }

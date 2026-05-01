@@ -31,12 +31,12 @@ public class HomeActivity extends AppCompatActivity {
         navUser = findViewById(R.id.navUser);
 
         productList = new ArrayList<>();
-        productList.add(new Product(1, "Laptop Gaming", "Core i9, RTX 4090", 55000000, "Điện tử"));
-        productList.add(new Product(2, "iPhone 15 Pro Max", "Titan tự nhiên, 256GB", 32000000, "Điện thoại"));
-        productList.add(new Product(3, "Bàn phím cơ", "Switch Cherry MX, RGB", 2500000, "Linh kiện"));
-        productList.add(new Product(4, "Chuột không dây", "DPI cao, pin bền", 1200000, "Linh kiện"));
-        productList.add(new Product(5, "Tai nghe chống ồn", "Âm thanh Hi-Res", 4500000, "Điện tử"));
-        productList.add(new Product(6, "Màn hình 4K", "144Hz, IPS", 8000000, "Linh kiện"));
+        productList.add(new Product(1, "Laptop Gaming", "Core i9, RTX 4090", 55000000, "Điện tử", R.drawable.laptop));
+        productList.add(new Product(2, "iPhone 15 Pro Max", "Titan tự nhiên, 256GB", 32000000, "Điện thoại", R.drawable.prm));
+        productList.add(new Product(3, "Bàn phím cơ", "Switch Cherry MX, RGB", 2500000, "Linh kiện", R.drawable.banphim));
+        productList.add(new Product(4, "Chuột không dây", "DPI cao, pin bền", 1200000, "Linh kiện", R.drawable.chuot));
+        productList.add(new Product(5, "Tai nghe chống ồn", "Âm thanh Hi-Res", 4500000, "Điện tử", R.drawable.chongon));
+        productList.add(new Product(6, "Màn hình 4K", "144Hz, IPS", 8000000, "Linh kiện", R.drawable.manhinhk));
 
         adapter = new ProductAdapter(this, productList);
         gridViewProducts.setAdapter(adapter);

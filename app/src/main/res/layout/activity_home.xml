@@ -54,7 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Tìm kiếm đồ công nghệ..."
+                android:text="@string/home_search_hint"
                 android:textColor="#757575"
                 android:textSize="14sp" />
         </LinearLayout>
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|start"
             android:layout_margin="16dp"
-            android:text="GIẢM GIÁ ĐẾN 50%\nCHO LAPTOP GAMING"
+            android:text="@string/banner_text"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -93,7 +93,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Sản phẩm mới nhất"
+        android:text="@string/home_featured"
         android:textColor="#212121"
         android:textSize="18sp"
         android:textStyle="bold" />

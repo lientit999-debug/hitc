@@ -7,9 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class ProductAdapter extends ArrayAdapter<Product> {
 
@@ -34,15 +37,25 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         TextView tvProductName = rowView.findViewById(R.id.tvProductName);
         TextView tvProductDesc = rowView.findViewById(R.id.tvProductDesc);
         TextView tvProductPrice = rowView.findViewById(R.id.tvProductPrice);
+        ImageView imgProduct = rowView.findViewById(R.id.imgProduct);
         Button btnDetail = rowView.findViewById(R.id.btnDetail);
 
         Product product = productList.get(position);
 
         tvProductName.setText(product.getName());
         tvProductDesc.setText(product.getDescription());
-        tvProductPrice.setText("Giá: " + product.getPrice() + " đ");
+        imgProduct.setImageResource(product.getImageResource());
+        
+        NumberFormat format = NumberFormat.getInstance(new Locale("vi", "VN"));
+        tvProductPrice.setText(format.format(product.getPrice()) + " đ");
 
         btnDetail.setOnClickListener(v -> {
+            Intent intent = new Intent(context, DetailActivity.class);
+            intent.putExtra("product", product);
+            context.startActivity(intent);
+        });
+
+        rowView.setOnClickListener(v -> {
             Intent intent = new Intent(context, DetailActivity.class);
             intent.putExtra("product", product);
             context.startActivity(intent);

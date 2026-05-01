@@ -2,16 +2,23 @@ package com.example.hitc;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class DetailActivity extends AppCompatActivity {
 
     TextView tvDetailName, tvDetailDescription, tvDetailPrice, tvDetailCategory;
-    Button btnAddToCart, btnGoCart, btnRelated;
+    ImageView imgDetail;
+    Button btnAddToCart, btnRelated;
+    View btnGoCart;
     Product product;
 
     @Override
@@ -23,6 +30,7 @@ public class DetailActivity extends AppCompatActivity {
         tvDetailDescription = findViewById(R.id.tvDetailDescription);
         tvDetailPrice = findViewById(R.id.tvDetailPrice);
         tvDetailCategory = findViewById(R.id.tvDetailCategory);
+        imgDetail = findViewById(R.id.imgDetail);
         btnAddToCart = findViewById(R.id.btnAddToCart);
         btnGoCart = findViewById(R.id.btnGoCart);
         btnRelated = findViewById(R.id.btnRelated);
@@ -32,13 +40,17 @@ public class DetailActivity extends AppCompatActivity {
         if (product != null) {
             tvDetailName.setText(product.getName());
             tvDetailDescription.setText(product.getDescription());
-            tvDetailPrice.setText("Giá: " + product.getPrice() + " đ");
-            tvDetailCategory.setText("Danh mục: " + product.getCategory());
+            imgDetail.setImageResource(product.getImageResource());
+            
+            NumberFormat format = NumberFormat.getInstance(new Locale("vi", "VN"));
+            tvDetailPrice.setText(format.format(product.getPrice()) + " đ");
+            
+            tvDetailCategory.setText(getString(R.string.detail_category_prefix) + product.getCategory());
         }
 
         btnAddToCart.setOnClickListener(v -> {
             CartManager.addToCart(product);
-            Toast.makeText(this, "Đã thêm vào giỏ hàng", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.detail_add_to_cart_success, product.getName()), Toast.LENGTH_SHORT).show();
         });
 
         btnGoCart.setOnClickListener(v ->
@@ -49,5 +61,9 @@ public class DetailActivity extends AppCompatActivity {
             intent.putExtra("category", product.getCategory());
             startActivity(intent);
         });
+    }
+
+    public void onBackPressed(View view) {
+        finish();
     }
 }

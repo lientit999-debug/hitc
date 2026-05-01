@@ -5,10 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.AppCompatButton;
+
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class CartAdapter extends ArrayAdapter<CartItem> {
 
@@ -35,15 +40,19 @@ public class CartAdapter extends ArrayAdapter<CartItem> {
         TextView tvCartName = rowView.findViewById(R.id.tvCartName);
         TextView tvCartPrice = rowView.findViewById(R.id.tvCartPrice);
         TextView tvCartQuantity = rowView.findViewById(R.id.tvCartQuantity);
-        Button btnMinus = rowView.findViewById(R.id.btnMinus);
-        Button btnPlus = rowView.findViewById(R.id.btnPlus);
-        Button btnRemove = rowView.findViewById(R.id.btnRemove);
+        ImageView imgCart = rowView.findViewById(R.id.imgCart);
+        AppCompatButton btnMinus = rowView.findViewById(R.id.btnMinus);
+        AppCompatButton btnPlus = rowView.findViewById(R.id.btnPlus);
+        ImageButton btnRemove = rowView.findViewById(R.id.btnRemove);
 
         CartItem item = cartList.get(position);
 
         tvCartName.setText(item.getProduct().getName());
-        tvCartPrice.setText("Tạm tính: " + item.getTotalPrice() + " đ");
-        tvCartQuantity.setText("Số lượng: " + item.getQuantity());
+        imgCart.setImageResource(item.getProduct().getImageResource());
+        
+        NumberFormat format = NumberFormat.getInstance(new Locale("vi", "VN"));
+        tvCartPrice.setText(format.format(item.getTotalPrice()) + " đ");
+        tvCartQuantity.setText(String.valueOf(item.getQuantity()));
 
         btnPlus.setOnClickListener(v -> {
             CartManager.increase(item.getProduct());

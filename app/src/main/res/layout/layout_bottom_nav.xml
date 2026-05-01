@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="65dp"
     android:background="#FFFFFF"
-    android:elevation="8dp"
+    android:elevation="12dp"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -12,9 +12,20 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center"
-        android:orientation="vertical">
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🏠" android:textSize="20sp"/>
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Home" android:textSize="12sp" android:textColor="#1976D2"/>
+        android:orientation="vertical"
+        android:background="?attr/selectableItemBackground">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🏠"
+            android:textSize="22sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_home"
+            android:textSize="11sp"
+            android:textColor="#0D47A1"
+            android:textStyle="bold"/>
     </LinearLayout>
 
     <LinearLayout
@@ -23,9 +34,19 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center"
-        android:orientation="vertical">
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🔍" android:textSize="20sp"/>
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Search" android:textSize="12sp"/>
+        android:orientation="vertical"
+        android:background="?attr/selectableItemBackground">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔍"
+            android:textSize="22sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_search"
+            android:textSize="11sp"
+            android:textColor="#757575"/>
     </LinearLayout>
 
     <LinearLayout
@@ -34,9 +55,19 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center"
-        android:orientation="vertical">
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🛒" android:textSize="20sp"/>
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cart" android:textSize="12sp"/>
+        android:orientation="vertical"
+        android:background="?attr/selectableItemBackground">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🛒"
+            android:textSize="22sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_cart"
+            android:textSize="11sp"
+            android:textColor="#757575"/>
     </LinearLayout>
 
     <LinearLayout
@@ -45,9 +76,19 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center"
-        android:orientation="vertical">
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="👤" android:textSize="20sp"/>
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="User" android:textSize="12sp"/>
+        android:orientation="vertical"
+        android:background="?attr/selectableItemBackground">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="👤"
+            android:textSize="22sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_user"
+            android:textSize="11sp"
+            android:textColor="#757575"/>
     </LinearLayout>
 
 </LinearLayout>

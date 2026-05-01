@@ -8,13 +8,15 @@ public class Product implements Serializable {
     private String description;
     private double price;
     private String category;
+    private int imageResource;
 
-    public Product(int id, String name, String description, double price, String category) {
+    public Product(int id, String name, String description, double price, String category, int imageResource) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.category = category;
+        this.imageResource = imageResource;
     }
 
     public int getId() {
@@ -35,5 +37,9 @@ public class Product implements Serializable {
 
     public String getCategory() {
         return category;
+    }
+
+    public int getImageResource() {
+        return imageResource;
     }
 }
