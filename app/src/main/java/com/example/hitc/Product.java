@@ -4,23 +4,21 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class Product implements Serializable {
+    private static final long serialVersionUID = 1L; // Đảm bảo tính ổn định khi truyền Intent
+
     private int id;
     private String name;
     @SerializedName("description")
     private String description;
     private double price;
     private String category;
-    
     private int imageResource;
     
     @SerializedName("image_url")
     private String imageUrl;
 
-    // Constructor mặc định cho Gson (CỰC KỲ QUAN TRỌNG ĐỂ KHÔNG LỖI)
-    public Product() {
-    }
+    public Product() {}
 
-    // Constructor cho dữ liệu mẫu
     public Product(int id, String name, String description, double price, String category, int imageResource) {
         this.id = id;
         this.name = name;
@@ -28,10 +26,9 @@ public class Product implements Serializable {
         this.price = price;
         this.category = category;
         this.imageResource = imageResource;
-        this.imageUrl = "";
     }
 
-    // Getter và Setter đầy đủ
+    // Getters and Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public String getName() { return name; }

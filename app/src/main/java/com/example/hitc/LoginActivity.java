@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
                 navigateToHome();
             } else {
-                Toast.makeText(this, "Email hoặc mật khẩu không đúng", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Sai tài khoản! Thử: user@gmail.com / 123456", Toast.LENGTH_LONG).show();
             }
         });
 
