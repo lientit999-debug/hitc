@@ -2,13 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hitc">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Hitc">
+        android:theme="@style/Theme.Hitc"
+        android:usesCleartextTraffic="true">
 
         <activity android:name=".ChangePasswordActivity" android:exported="false" />
         <activity android:name=".InformationUserActivity" android:exported="false" />
@@ -21,8 +25,8 @@
         <activity android:name=".ForgetPasswordActivity" android:exported="false" />
         <activity android:name=".RegisterActivity" android:exported="false" />
         <activity android:name=".LoginActivity" android:exported="false" />
-        <activity android:name=".MainActivity" android:exported="false" />
 
+        <!-- Chỉ để duy nhất WelcomeActivity làm LAUNCHER -->
         <activity
             android:name=".WelcomeActivity"
             android:exported="true">

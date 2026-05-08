@@ -2,6 +2,7 @@ package com.example.hitc;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -31,18 +32,16 @@ public class LoginActivity extends AppCompatActivity {
             String password = edtPasswordLogin.getText().toString().trim();
 
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Vui lòng nhập email và mật khẩu", Toast.LENGTH_SHORT).show();
                 return;
             }
 
+            // Xử lý đăng nhập thông qua UserManager
             if (UserManager.login(email, password)) {
-                Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                finish();
+                Toast.makeText(this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
+                navigateToHome();
             } else {
-                Toast.makeText(this, "Sai email hoặc mật khẩu", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Email hoặc mật khẩu không đúng", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -51,5 +50,12 @@ public class LoginActivity extends AppCompatActivity {
 
         tvForgetPassword.setOnClickListener(v ->
                 startActivity(new Intent(LoginActivity.this, ForgetPasswordActivity.class)));
+    }
+
+    private void navigateToHome() {
+        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 }

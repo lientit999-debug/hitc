@@ -9,7 +9,13 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.text.NumberFormat;
 import java.util.List;
@@ -28,50 +34,69 @@ public class CartAdapter extends ArrayAdapter<CartItem> {
         this.onCartChanged = onCartChanged;
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View rowView = convertView;
-
-        if (rowView == null) {
-            LayoutInflater inflater = context.getLayoutInflater();
-            rowView = inflater.inflate(R.layout.item_cart, parent, false);
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        if (convertView == null) {
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_cart, parent, false);
         }
 
-        TextView tvCartName = rowView.findViewById(R.id.tvCartName);
-        TextView tvCartPrice = rowView.findViewById(R.id.tvCartPrice);
-        TextView tvCartQuantity = rowView.findViewById(R.id.tvCartQuantity);
-        ImageView imgCart = rowView.findViewById(R.id.imgCart);
-        AppCompatButton btnMinus = rowView.findViewById(R.id.btnMinus);
-        AppCompatButton btnPlus = rowView.findViewById(R.id.btnPlus);
-        ImageButton btnRemove = rowView.findViewById(R.id.btnRemove);
+        TextView tvCartName = convertView.findViewById(R.id.tvCartName);
+        TextView tvCartPrice = convertView.findViewById(R.id.tvCartPrice);
+        TextView tvCartQuantity = convertView.findViewById(R.id.tvCartQuantity);
+        ImageView imgCart = convertView.findViewById(R.id.imgCart);
+        AppCompatButton btnMinus = convertView.findViewById(R.id.btnMinus);
+        AppCompatButton btnPlus = convertView.findViewById(R.id.btnPlus);
+        ImageButton btnRemove = convertView.findViewById(R.id.btnRemove);
 
         CartItem item = cartList.get(position);
+        Product product = item.getProduct();
 
-        tvCartName.setText(item.getProduct().getName());
-        imgCart.setImageResource(item.getProduct().getImageResource());
-        
-        NumberFormat format = NumberFormat.getInstance(new Locale("vi", "VN"));
-        tvCartPrice.setText(format.format(item.getTotalPrice()) + " đ");
-        tvCartQuantity.setText(String.valueOf(item.getQuantity()));
+        if (product != null) {
+            tvCartName.setText(product.getName());
 
-        btnPlus.setOnClickListener(v -> {
-            CartManager.increase(item.getProduct());
-            notifyDataSetChanged();
-            onCartChanged.run();
-        });
+            // Định dạng tiền tệ Việt Nam
+            NumberFormat format = NumberFormat.getInstance(new Locale("vi", "VN"));
+            tvCartPrice.setText(format.format(item.getTotalPrice()) + " đ");
+            tvCartQuantity.setText(String.valueOf(item.getQuantity()));
 
-        btnMinus.setOnClickListener(v -> {
-            CartManager.decrease(item.getProduct());
-            notifyDataSetChanged();
-            onCartChanged.run();
-        });
+            // Tải ảnh an toàn với Glide (Bo góc 16px)
+            RequestOptions requestOptions = RequestOptions.bitmapTransform(new RoundedCorners(16));
+            if (product.getImageUrl() != null && !product.getImageUrl().isEmpty()) {
+                Glide.with(context)
+                        .load(product.getImageUrl())
+                        .apply(requestOptions)
+                        .placeholder(R.drawable.laptop)
+                        .error(R.drawable.laptop)
+                        .into(imgCart);
+            } else {
+                int resId = product.getImageResource() != 0 ? product.getImageResource() : R.drawable.laptop;
+                Glide.with(context)
+                        .load(resId)
+                        .apply(requestOptions)
+                        .into(imgCart);
+            }
 
-        btnRemove.setOnClickListener(v -> {
-            CartManager.remove(item.getProduct());
-            notifyDataSetChanged();
-            onCartChanged.run();
-        });
+            // Sự kiện tăng/giảm số lượng
+            btnPlus.setOnClickListener(v -> {
+                CartManager.increase(product);
+                notifyDataSetChanged();
+                onCartChanged.run();
+            });
 
-        return rowView;
+            btnMinus.setOnClickListener(v -> {
+                CartManager.decrease(product);
+                notifyDataSetChanged();
+                onCartChanged.run();
+            });
+
+            btnRemove.setOnClickListener(v -> {
+                CartManager.remove(product);
+                notifyDataSetChanged();
+                onCartChanged.run();
+            });
+        }
+
+        return convertView;
     }
 }

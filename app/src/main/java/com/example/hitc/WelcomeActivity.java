@@ -16,13 +16,17 @@ public class WelcomeActivity extends AppCompatActivity {
         Button btnGoRegister = findViewById(R.id.btnGoRegister);
 
         if (btnGoLogin != null) {
-            btnGoLogin.setOnClickListener(v ->
-                    startActivity(new Intent(WelcomeActivity.this, LoginActivity.class)));
+            btnGoLogin.setOnClickListener(v -> {
+                Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
+                startActivity(intent);
+            });
         }
 
         if (btnGoRegister != null) {
-            btnGoRegister.setOnClickListener(v ->
-                    startActivity(new Intent(WelcomeActivity.this, RegisterActivity.class)));
+            btnGoRegister.setOnClickListener(v -> {
+                Intent intent = new Intent(WelcomeActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            });
         }
     }
 }

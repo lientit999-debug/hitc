@@ -2,11 +2,14 @@ package com.example.hitc;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +21,7 @@ public class SearchActivity extends AppCompatActivity {
     EditText edtSearch;
     TextView tvSearchResult;
     ListView listViewSearch;
+    ProgressBar progressBarSearch;
     LinearLayout navHome, navSearch, navCart, navUser;
 
     ArrayList<Product> allProducts, filteredProducts;
@@ -31,68 +35,67 @@ public class SearchActivity extends AppCompatActivity {
         edtSearch = findViewById(R.id.edtSearch);
         tvSearchResult = findViewById(R.id.tvSearchResult);
         listViewSearch = findViewById(R.id.listViewSearch);
-
+        
         navHome = findViewById(R.id.navHome);
         navSearch = findViewById(R.id.navSearch);
         navCart = findViewById(R.id.navCart);
         navUser = findViewById(R.id.navUser);
 
         allProducts = new ArrayList<>();
-        allProducts.add(new Product(1, "Laptop Gaming", "Core i9, RTX 4090", 55000000, "Điện tử", R.drawable.laptop));
-        allProducts.add(new Product(2, "iPhone 15 Pro Max", "Titan tự nhiên, 256GB", 32000000, "Điện thoại", R.drawable.prm));
-        allProducts.add(new Product(3, "Bàn phím cơ", "Switch Cherry MX, RGB", 2500000, "Linh kiện", R.drawable.banphim));
-        allProducts.add(new Product(4, "Chuột không dây", "DPI cao, pin bền", 1200000, "Linh kiện", R.drawable.chuot));
-        allProducts.add(new Product(5, "Tai nghe chống ồn", "Âm thanh Hi-Res", 4500000, "Điện tử", R.drawable.chongon));
-        allProducts.add(new Product(6, "Màn hình 4K", "144Hz, IPS", 8000000, "Linh kiện", R.drawable.manhinhk));
-
-        filteredProducts = new ArrayList<>(allProducts);
+        filteredProducts = new ArrayList<>();
         adapter = new ProductAdapter(this, filteredProducts);
         listViewSearch.setAdapter(adapter);
 
-        updateResultText();
+        // Gọi API (đã được fake ở cấp độ network)
+        fetchDataFromApi();
 
         edtSearch.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 filterProduct(s.toString());
             }
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+
+        navHome.setOnClickListener(v -> startActivity(new Intent(this, HomeActivity.class)));
+        navCart.setOnClickListener(v -> startActivity(new Intent(this, CartActivity.class)));
+        navUser.setOnClickListener(v -> startActivity(new Intent(this, InformationUserActivity.class)));
+    }
+
+    private void fetchDataFromApi() {
+        RetrofitClient.getApiService().getProducts().enqueue(new retrofit2.Callback<java.util.List<Product>>() {
+            @Override
+            public void onResponse(retrofit2.Call<java.util.List<Product>> call, retrofit2.Response<java.util.List<Product>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    allProducts.clear();
+                    allProducts.addAll(response.body());
+                    filterProduct(edtSearch.getText().toString());
+                }
+            }
 
             @Override
-            public void afterTextChanged(Editable s) {
+            public void onFailure(retrofit2.Call<java.util.List<Product>> call, Throwable t) {
+                // Nếu lỗi network thật, dùng MockData làm dự phòng
+                allProducts.clear();
+                allProducts.addAll(MockData.getFakeProducts());
+                filterProduct(edtSearch.getText().toString());
             }
         });
-
-        navHome.setOnClickListener(v ->
-                startActivity(new Intent(SearchActivity.this, HomeActivity.class)));
-
-        navSearch.setOnClickListener(v -> {
-        });
-
-        navCart.setOnClickListener(v ->
-                startActivity(new Intent(SearchActivity.this, CartActivity.class)));
-
-        navUser.setOnClickListener(v ->
-                startActivity(new Intent(SearchActivity.this, InformationUserActivity.class)));
     }
 
     private void filterProduct(String keyword) {
         filteredProducts.clear();
-
         for (Product product : allProducts) {
             if (product.getName().toLowerCase().contains(keyword.toLowerCase())) {
                 filteredProducts.add(product);
             }
         }
-
         adapter.notifyDataSetChanged();
-        updateResultText();
-    }
-
-    private void updateResultText() {
-        tvSearchResult.setText(getString(R.string.search_result_prefix, filteredProducts.size()));
+        if (tvSearchResult != null) {
+            tvSearchResult.setText("Kết quả tìm kiếm (" + filteredProducts.size() + ")");
+        }
     }
 }

@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
+
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -40,7 +42,16 @@ public class DetailActivity extends AppCompatActivity {
         if (product != null) {
             tvDetailName.setText(product.getName());
             tvDetailDescription.setText(product.getDescription());
-            imgDetail.setImageResource(product.getImageResource());
+            
+            // Load image using Glide: URL first, then fallback to Resource
+            if (product.getImageUrl() != null && !product.getImageUrl().isEmpty()) {
+                Glide.with(this)
+                     .load(product.getImageUrl())
+                     .placeholder(R.drawable.ic_launcher_foreground)
+                     .into(imgDetail);
+            } else {
+                imgDetail.setImageResource(product.getImageResource());
+            }
             
             NumberFormat format = NumberFormat.getInstance(new Locale("vi", "VN"));
             tvDetailPrice.setText(format.format(product.getPrice()) + " đ");
